@@ -72,7 +72,7 @@
     }
   }
   window.BRM_BACKEND_READY = true;
-  $('#chatStatus').innerHTML = '<span class="connection-badge">실시간 서버 연결됨</span>';
+  $('#chatStatus').textContent = '실시간 채팅 연결 중…';
   const isMember = !session.user.is_anonymous;
   if (isMember) {
     const oldLoginButton = $('#loginOpen');
@@ -186,6 +186,12 @@
       renderPosts();
     })
     .subscribe(async (status) => {
-      if (status === 'SUBSCRIBED') await liveChannel.track({ online_at: new Date().toISOString() });
+      if (status === 'SUBSCRIBED') {
+        $('#chatStatus').innerHTML = '<span class="connection-badge">실시간 서버 연결됨</span>';
+        await liveChannel.track({ online_at: new Date().toISOString() });
+      } else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') {
+        $('#chatStatus').textContent = '실시간 연결을 다시 시도하고 있습니다.';
+        $('#chatStatus').classList.add('service-error');
+      }
     });
 })();
