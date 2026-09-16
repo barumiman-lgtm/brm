@@ -13,6 +13,28 @@
     <link rel="stylesheet" href="service.css" />
   </head>
   <body>
+    <section class="market-tape" aria-label="미국 시장 실시간 전광판">
+      <div class="tape-track">
+        <div class="tape-group">
+          <span class="tape-label">US MARKET</span>
+          <span class="tape-item" data-market-symbol="^IXIC">NASDAQ <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="^GSPC">S&amp;P 500 <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="^DJI">DOW <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="NVDA">NVDA <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="TSLA">TSLA <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="AAPL">AAPL <b>–</b><em>–</em></span>
+        </div>
+        <div class="tape-group" aria-hidden="true">
+          <span class="tape-label">US MARKET</span>
+          <span class="tape-item" data-market-symbol="^IXIC">NASDAQ <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="^GSPC">S&amp;P 500 <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="^DJI">DOW <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="NVDA">NVDA <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="TSLA">TSLA <b>–</b><em>–</em></span>
+          <span class="tape-item" data-market-symbol="AAPL">AAPL <b>–</b><em>–</em></span>
+        </div>
+      </div>
+    </section>
     <main class="shell page-grid">
       <section class="content-column">
         <section class="side-card chat-card chat-stage" aria-labelledby="chatTitle">
@@ -91,10 +113,10 @@
           <div class="market-heading"><span class="live-dot"></span><strong>오늘의 시장</strong></div>
           <span class="market-time" id="marketStatus">시황 불러오는 중…</span>
           <div class="ticker-row">
-            <article class="ticker"><span>KOSPI</span><strong>2,573.64</strong><em class="up">+0.68%</em></article>
-            <article class="ticker"><span>KOSDAQ</span><strong>733.08</strong><em class="down">-0.12%</em></article>
-            <article class="ticker"><span>NASDAQ</span><strong>17,181.14</strong><em class="up">+1.04%</em></article>
-            <article class="ticker"><span>USD/KRW</span><strong>1,379.20</strong><em class="down">-0.21%</em></article>
+            <article class="ticker" data-market-symbol="^KS11"><span>KOSPI</span><strong>2,573.64</strong><em class="up">+0.68%</em></article>
+            <article class="ticker" data-market-symbol="^KQ11"><span>KOSDAQ</span><strong>733.08</strong><em class="down">-0.12%</em></article>
+            <article class="ticker" data-market-symbol="^IXIC"><span>NASDAQ</span><strong>17,181.14</strong><em class="up">+1.04%</em></article>
+            <article class="ticker" data-market-symbol="KRW=X"><span>USD/KRW</span><strong>1,379.20</strong><em class="down">-0.21%</em></article>
           </div>
         </section>
         <section class="side-card rank-card">

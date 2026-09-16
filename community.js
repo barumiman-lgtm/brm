@@ -22,12 +22,13 @@
       if (!response.ok) throw new Error();
       const { quotes, updatedAt } = await response.json();
       const quoteMap = Object.fromEntries(quotes.map((quote) => [quote.symbol, quote]));
-      const tickerSymbols = ['^KS11', '^KQ11', '^IXIC', 'KRW=X'];
-      document.querySelectorAll('.ticker').forEach((ticker, index) => {
-        const quote = quoteMap[tickerSymbols[index]];
+      document.querySelectorAll('[data-market-symbol]').forEach((ticker) => {
+        const quote = quoteMap[ticker.dataset.marketSymbol];
         if (!quote || quote.price == null) return;
-        ticker.querySelector('strong').textContent = formatNumber(quote.price);
+        const priceNode = ticker.querySelector('strong, b');
+        if (priceNode) priceNode.textContent = formatNumber(quote.price);
         const change = ticker.querySelector('em');
+        if (!change) return;
         const percent = Number(quote.changePercent || 0);
         change.textContent = `${percent >= 0 ? '+' : ''}${percent.toFixed(2)}%`;
         change.className = percent >= 0 ? 'up' : 'down';

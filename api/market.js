@@ -1,4 +1,4 @@
-const SYMBOLS = ['^KS11', '^KQ11', '^IXIC', 'KRW=X', '005930.KS', '000660.KS', 'TSLA', 'NVDA', '005380.KS'];
+const SYMBOLS = ['^KS11', '^KQ11', '^IXIC', '^GSPC', '^DJI', 'KRW=X', '005930.KS', '000660.KS', 'TSLA', 'NVDA', 'AAPL', '005380.KS'];
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate=300');
