@@ -28,11 +28,13 @@ document.querySelectorAll('.tab').forEach((tab) => {
 
 const toast = document.querySelector('#toast');
 document.querySelector('#writeButton').addEventListener('click', () => {
+  if (window.BRM_BACKEND_READY) return;
   toast.classList.add('show');
   window.setTimeout(() => toast.classList.remove('show'), 2200);
 });
 
 document.querySelector('#chatForm').addEventListener('submit', (event) => {
+  if (window.BRM_BACKEND_READY) return;
   event.preventDefault();
   const input = document.querySelector('#chatInput');
   if (!input.value.trim()) return;

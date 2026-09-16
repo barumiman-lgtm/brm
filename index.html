@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="chat.css" />
+    <link rel="stylesheet" href="service.css" />
   </head>
   <body>
     <header class="topbar">
@@ -44,7 +45,7 @@
           <div class="market-heading">
             <span class="live-dot"></span>
             <strong>오늘의 시장</strong>
-            <span class="market-time">장 마감 · 예시 데이터</span>
+            <span class="market-time" id="marketStatus">시황 불러오는 중…</span>
           </div>
           <div class="ticker-row">
             <article class="ticker">
@@ -110,7 +111,7 @@
               <div class="post-stats"><strong>29</strong><span>댓글</span></div>
             </article>
           </div>
-          <button class="more-btn">게시글 더 보기 <span>→</span></button>
+          <button class="more-btn" id="loadMorePosts">게시글 더 보기 <span>→</span></button>
         </section>
 
         <section class="meme-section" id="memes">
@@ -134,8 +135,8 @@
           <div class="quick-links"><a href="#">아이디 찾기</a><i></i><a href="#">비밀번호 찾기</a></div>
         </section>
         <section class="side-card rank-card">
-          <div class="side-title"><h2>실시간 인기 종목</h2><span>15:30 기준</span></div>
-          <ol class="ranking">
+          <div class="side-title"><h2>실시간 인기 종목</h2><span id="rankingTime">데이터 연결 중</span></div>
+          <ol class="ranking" id="rankingList">
             <li><b>1</b><div><strong>삼성전자</strong><span>005930</span></div><em class="up">+1.24%</em></li>
             <li><b>2</b><div><strong>SK하이닉스</strong><span>000660</span></div><em class="up">+2.81%</em></li>
             <li><b>3</b><div><strong>테슬라</strong><span>TSLA</span></div><em class="down">-0.46%</em></li>
@@ -158,7 +159,7 @@
             <input id="chatInput" type="text" maxlength="80" placeholder="메시지를 입력하세요" aria-label="채팅 메시지" />
             <button type="submit" aria-label="메시지 보내기">↑</button>
           </form>
-          <p class="chat-note">로그인 후 채팅에 참여할 수 있어요.</p>
+          <p class="chat-note" id="chatStatus">실시간 서버 연결 중…</p>
         </section>
         <section class="notice">
           <strong>📢 커뮤니티 이용 안내</strong>
@@ -181,7 +182,25 @@
         <small>계속 진행하면 이용약관 및 개인정보처리방침에 동의하게 됩니다.</small>
       </section>
     </div>
+    <div class="modal-backdrop" id="writeModal" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
+      <section class="write-modal">
+        <button class="modal-close" id="writeClose" aria-label="닫기">×</button>
+        <span class="section-kicker">NEW POST</span>
+        <h2 id="writeTitle">새 글 작성</h2>
+        <form id="postForm">
+          <div class="form-row">
+            <label>닉네임<input id="postNickname" maxlength="16" required placeholder="닉네임" /></label>
+            <label>게시판<select id="postCategory"><option value="domestic">국내주식</option><option value="usa">미국주식</option><option value="free">자유</option><option value="meme">주식 웃짤</option></select></label>
+          </div>
+          <label>제목<input id="postTitle" maxlength="80" required placeholder="제목을 입력하세요" /></label>
+          <label>내용<textarea id="postContent" maxlength="2000" required placeholder="투자 의견과 근거를 함께 적어주세요"></textarea></label>
+          <button type="submit" class="submit-post">게시하기</button>
+        </form>
+      </section>
+    </div>
     <div class="toast" id="toast">로그인 후 글을 작성할 수 있어요.</div>
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="community.js"></script>
   </body>
 </html>
