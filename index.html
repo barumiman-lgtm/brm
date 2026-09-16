@@ -41,6 +41,20 @@
 
     <main class="shell page-grid">
       <section class="content-column">
+        <section class="side-card chat-card chat-stage" aria-labelledby="chatTitle">
+          <div class="side-title chat-title">
+            <div><span class="section-kicker">LIVE LOUNGE</span><h2 id="chatTitle"><span class="chat-live"></span> 실시간 투자 채팅</h2></div>
+            <span><b id="onlineCount">1</b>명 접속</span>
+          </div>
+          <div class="chat-messages" id="chatMessages" aria-live="polite">
+            <div class="chat-message"><span class="avatar avatar-red">불</span><p><b>불장 안내</b>실시간 서버를 연결하고 있습니다.</p><time>지금</time></div>
+          </div>
+          <form class="chat-form" id="chatForm">
+            <input id="chatInput" type="text" maxlength="80" placeholder="오늘 시장은 어땠나요? 메시지를 입력하세요" aria-label="채팅 메시지" />
+            <button type="submit" aria-label="메시지 보내기">↑</button>
+          </form>
+          <p class="chat-note" id="chatStatus">실시간 서버 연결 중…</p>
+        </section>
         <section class="market-strip" id="market" aria-label="주요 지수">
           <div class="market-heading">
             <span class="live-dot"></span>
@@ -143,23 +157,6 @@
             <li><b>4</b><div><strong>엔비디아</strong><span>NVDA</span></div><em class="up">+3.12%</em></li>
             <li><b>5</b><div><strong>현대차</strong><span>005380</span></div><em class="down">-0.18%</em></li>
           </ol>
-        </section>
-        <section class="side-card chat-card" aria-labelledby="chatTitle">
-          <div class="side-title chat-title">
-            <h2 id="chatTitle"><span class="chat-live"></span> 실시간 채팅</h2>
-            <span><b id="onlineCount">128</b>명 접속</span>
-          </div>
-          <div class="chat-messages" id="chatMessages" aria-live="polite">
-            <div class="chat-message"><span class="avatar avatar-red">불</span><p><b>장전매수</b> 반도체 오늘 힘 좋네요</p><time>15:21</time></div>
-            <div class="chat-message"><span class="avatar avatar-blue">미</span><p><b>미장러</b> 엔비디아 또 가나요 ㅋㅋ</p><time>15:22</time></div>
-            <div class="chat-message"><span class="avatar avatar-green">배</span><p><b>배당개미</b> 저는 오늘도 적립식!</p><time>15:23</time></div>
-            <div class="chat-message"><span class="avatar avatar-yellow">존</span><p><b>존버왕</b> 다들 성투하세요 🔥</p><time>15:24</time></div>
-          </div>
-          <form class="chat-form" id="chatForm">
-            <input id="chatInput" type="text" maxlength="80" placeholder="메시지를 입력하세요" aria-label="채팅 메시지" />
-            <button type="submit" aria-label="메시지 보내기">↑</button>
-          </form>
-          <p class="chat-note" id="chatStatus">실시간 서버 연결 중…</p>
         </section>
         <section class="notice">
           <strong>📢 커뮤니티 이용 안내</strong>

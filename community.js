@@ -122,5 +122,19 @@
     const { error } = await client.from('messages').insert({ author_id: session.user.id, nickname, content });
     if (error) showToast('채팅 전송에 실패했습니다.'); else input.value = '';
   });
-  client.channel('brm-live').on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, (payload) => renderMessage(payload.new)).on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'posts' }, (payload) => { posts.unshift(payload.new); renderPosts(); }).subscribe();
+  const liveChannel = client.channel('brm-live', {
+    config: { presence: { key: session.user.id } }
+  });
+  liveChannel
+    .on('presence', { event: 'sync' }, () => {
+      $('#onlineCount').textContent = Math.max(1, Object.keys(liveChannel.presenceState()).length);
+    })
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, (payload) => renderMessage(payload.new))
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'posts' }, (payload) => {
+      posts.unshift(payload.new);
+      renderPosts();
+    })
+    .subscribe(async (status) => {
+      if (status === 'SUBSCRIBED') await liveChannel.track({ online_at: new Date().toISOString() });
+    });
 })();
