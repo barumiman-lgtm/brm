@@ -3,7 +3,7 @@ const openModal = () => modal.classList.add('open');
 const closeModal = () => modal.classList.remove('open');
 
 document.querySelector('#loginOpen').addEventListener('click', openModal);
-document.querySelector('#sideLogin').addEventListener('click', openModal);
+document.querySelector('#sideLogin')?.addEventListener('click', openModal);
 document.querySelector('#loginClose').addEventListener('click', closeModal);
 modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });

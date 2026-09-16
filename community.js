@@ -83,8 +83,11 @@
       window.location.reload();
     });
     const accountLabel = session.user.email || '회원';
-    $('#sideLogin').textContent = `${accountLabel} 접속 중`;
-    $('#sideLogin').disabled = true;
+    const sideLogin = $('#sideLogin');
+    if (sideLogin) {
+      sideLogin.textContent = `${accountLabel} 접속 중`;
+      sideLogin.disabled = true;
+    }
   }
 
   $('#authForm').addEventListener('submit', async (event) => {

@@ -8,3 +8,5 @@
 
 .nav-wrap{height:58px}.brand{font-size:19px}.brand-mark{width:30px;height:30px;font-size:16px}.page-grid{padding-top:18px;padding-bottom:28px}.content-column>.board-card{margin-top:12px;border-radius:14px}.content-column>.board-card .section-head{align-items:center;padding:13px 16px 10px}.content-column>.board-card .section-kicker{display:none}.content-column>.board-card .section-head h2{margin:0;font-size:16px}.content-column>.board-card .tabs{padding:3px}.content-column>.board-card .tab{padding:5px 9px;font-size:11px}.content-column>.board-card .post{grid-template-columns:45px 1fr 38px;gap:8px;padding:9px 16px}.content-column>.board-card .post-main h3{margin-bottom:3px;font-size:13px}.content-column>.board-card .post-main p{display:none}.content-column>.board-card .meta{font-size:9px}.content-column>.board-card .more-btn{display:none}
 @media(max-width:650px){.login-btn{display:block}.page-grid{padding-bottom:18px}.content-column>.board-card .section-head{padding:12px}.content-column>.board-card .tabs{margin-top:9px}.content-column>.board-card .post{padding:9px 11px}}
+
+.hero-card,.board-card,#writeButton{display:none!important}
