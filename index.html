@@ -13,26 +13,6 @@
     <link rel="stylesheet" href="service.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div class="shell nav-wrap">
-        <a class="brand" href="#" aria-label="불장 홈">
-          <span class="brand-mark">B</span>
-          <span>불장</span>
-        </a>
-        <div class="nav-actions">
-          <button class="icon-btn" id="searchToggle" aria-label="검색 열기">⌕</button>
-          <button class="login-btn" id="loginOpen">로그인</button>
-          <button class="write-btn" id="writeButton">글쓰기</button>
-        </div>
-      </div>
-      <div class="search-panel" id="searchPanel">
-        <div class="shell search-inner">
-          <input type="search" placeholder="종목명, 종목코드, 게시글을 검색하세요" aria-label="통합검색" />
-          <button id="searchClose">닫기</button>
-        </div>
-      </div>
-    </header>
-
     <main class="shell page-grid">
       <section class="content-column">
         <section class="side-card chat-card chat-stage" aria-labelledby="chatTitle">
@@ -49,28 +29,6 @@
           </form>
           <p class="chat-note" id="chatStatus">실시간 서버 연결 중…</p>
         </section>
-        <section class="market-strip" id="market" aria-label="주요 지수">
-          <div class="market-heading">
-            <span class="live-dot"></span>
-            <strong>오늘의 시장</strong>
-            <span class="market-time" id="marketStatus">시황 불러오는 중…</span>
-          </div>
-          <div class="ticker-row">
-            <article class="ticker">
-              <span>KOSPI</span><strong>2,573.64</strong><em class="up">+0.68%</em>
-            </article>
-            <article class="ticker">
-              <span>KOSDAQ</span><strong>733.08</strong><em class="down">-0.12%</em>
-            </article>
-            <article class="ticker">
-              <span>NASDAQ</span><strong>17,181.14</strong><em class="up">+1.04%</em>
-            </article>
-            <article class="ticker">
-              <span>USD/KRW</span><strong>1,379.20</strong><em class="down">-0.21%</em>
-            </article>
-          </div>
-        </section>
-
         <section class="hero-card">
           <div>
             <span class="eyebrow">오늘도 성투하세요</span>
@@ -125,6 +83,20 @@
       </section>
 
       <aside class="side-column">
+        <section class="side-card account-card">
+          <a class="brand" href="#" aria-label="불장 홈"><span class="brand-mark">B</span><span>불장</span></a>
+          <button class="login-btn" id="loginOpen">로그인</button>
+        </section>
+        <section class="market-strip side-market" id="market" aria-label="주요 지수">
+          <div class="market-heading"><span class="live-dot"></span><strong>오늘의 시장</strong></div>
+          <span class="market-time" id="marketStatus">시황 불러오는 중…</span>
+          <div class="ticker-row">
+            <article class="ticker"><span>KOSPI</span><strong>2,573.64</strong><em class="up">+0.68%</em></article>
+            <article class="ticker"><span>KOSDAQ</span><strong>733.08</strong><em class="down">-0.12%</em></article>
+            <article class="ticker"><span>NASDAQ</span><strong>17,181.14</strong><em class="up">+1.04%</em></article>
+            <article class="ticker"><span>USD/KRW</span><strong>1,379.20</strong><em class="down">-0.21%</em></article>
+          </div>
+        </section>
         <section class="side-card rank-card">
           <div class="side-title"><h2>실시간 인기 종목</h2><span id="rankingTime">데이터 연결 중</span></div>
           <ol class="ranking" id="rankingList">

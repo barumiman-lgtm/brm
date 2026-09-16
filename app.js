@@ -9,11 +9,11 @@ modal.addEventListener('click', (event) => { if (event.target === modal) closeMo
 document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
 
 const searchPanel = document.querySelector('#searchPanel');
-document.querySelector('#searchToggle').addEventListener('click', () => {
-  searchPanel.classList.add('open');
-  searchPanel.querySelector('input').focus();
+document.querySelector('#searchToggle')?.addEventListener('click', () => {
+  searchPanel?.classList.add('open');
+  searchPanel?.querySelector('input')?.focus();
 });
-document.querySelector('#searchClose').addEventListener('click', () => searchPanel.classList.remove('open'));
+document.querySelector('#searchClose')?.addEventListener('click', () => searchPanel?.classList.remove('open'));
 
 document.querySelectorAll('.tab').forEach((tab) => {
   tab.addEventListener('click', () => {
