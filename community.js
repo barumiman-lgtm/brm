@@ -154,7 +154,10 @@
   const renderMessage = (message, prepend = false) => {
     const element = document.createElement('div');
     element.className = 'chat-message';
-    element.innerHTML = `<span class="avatar avatar-red">${escapeHtml(message.nickname.slice(0, 1))}</span><p><b>${escapeHtml(message.nickname)}</b>${escapeHtml(message.content)}</p><time>${new Date(message.created_at).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })}</time>`;
+    const identity = message.author_id || message.nickname;
+    const colorHash = Array.from(String(identity)).reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 7);
+    const hue = colorHash % 360;
+    element.innerHTML = `<span class="avatar avatar-identity" style="--avatar-hue:${hue}" title="사용자 고유 프로필 색상">${escapeHtml(message.nickname.slice(0, 1))}</span><p><b>${escapeHtml(message.nickname)}</b>${escapeHtml(message.content)}</p><time>${new Date(message.created_at).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })}</time>`;
     prepend ? $('#chatMessages').prepend(element) : $('#chatMessages').append(element);
     $('#chatMessages').scrollTop = $('#chatMessages').scrollHeight;
   };

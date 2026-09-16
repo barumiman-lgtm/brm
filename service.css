@@ -22,3 +22,5 @@ html{font-size:16px}body{font-size:15px;letter-spacing:-.15px}.page-grid{width:m
 
 @media(max-width:1100px){.page-grid{grid-template-columns:minmax(0,1fr)}.side-column{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.account-card{grid-column:1/-1}.notice{grid-column:1/-1}.chat-stage{min-height:540px}}
 @media(max-width:650px){.side-column{grid-template-columns:minmax(0,1fr)}.account-card,.notice{grid-column:auto}.chat-stage{min-height:500px}}
+
+@media(min-width:1101px){.page-grid{align-items:stretch}.content-column{display:flex}.chat-stage{display:flex;flex:1;flex-direction:column;height:100%;margin-bottom:0}.chat-stage .chat-messages{flex:1;height:auto;min-height:405px}.side-column{height:100%}.notice{display:none}}
