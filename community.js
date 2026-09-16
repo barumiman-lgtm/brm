@@ -72,6 +72,50 @@
   }
   window.BRM_BACKEND_READY = true;
   $('#chatStatus').innerHTML = '<span class="connection-badge">실시간 서버 연결됨</span>';
+  const isMember = !session.user.is_anonymous;
+  if (isMember) {
+    const oldLoginButton = $('#loginOpen');
+    const logoutButton = oldLoginButton.cloneNode(true);
+    logoutButton.textContent = '로그아웃';
+    oldLoginButton.replaceWith(logoutButton);
+    logoutButton.addEventListener('click', async () => {
+      await client.auth.signOut();
+      window.location.reload();
+    });
+    const accountLabel = session.user.email || '회원';
+    $('#sideLogin').textContent = `${accountLabel} 접속 중`;
+    $('#sideLogin').disabled = true;
+  }
+
+  $('#authForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = $('#authEmail').value.trim();
+    const password = $('#authPassword').value;
+    const action = event.submitter?.value || 'login';
+    const message = $('#authMessage');
+    message.className = 'auth-message';
+    message.textContent = action === 'signup' ? '계정을 만드는 중입니다…' : '로그인 중입니다…';
+    let result;
+    if (action === 'signup') {
+      result = session.user.is_anonymous
+        ? await client.auth.updateUser({ email, password })
+        : await client.auth.signUp({ email, password });
+    } else {
+      result = await client.auth.signInWithPassword({ email, password });
+    }
+    if (result.error) {
+      message.classList.add('error');
+      message.textContent = action === 'signup' ? '가입에 실패했습니다. 이미 가입된 이메일인지 확인해주세요.' : '이메일 또는 비밀번호를 확인해주세요.';
+      return;
+    }
+    if (action === 'signup' && !result.data.session) {
+      message.classList.add('success');
+      message.textContent = '확인 메일을 보냈습니다. 메일 인증 후 로그인해주세요.';
+      return;
+    }
+    showToast(action === 'signup' ? '회원가입이 완료됐습니다.' : '로그인했습니다.');
+    window.setTimeout(() => window.location.reload(), 500);
+  });
   const savedNickname = localStorage.getItem('brm_nickname') || `개미${session.user.id.slice(0, 4)}`;
   $('#postNickname').value = savedNickname;
 
