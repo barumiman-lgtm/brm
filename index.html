@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="투자자들이 편하게 이야기하는 주식 커뮤니티, 불장" />
+    <title>불장 — 주식 커뮤니티</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="shell nav-wrap">
+        <a class="brand" href="#" aria-label="불장 홈">
+          <span class="brand-mark">B</span>
+          <span>불장</span>
+        </a>
+        <nav class="main-nav" aria-label="주요 메뉴">
+          <a class="active" href="#board">커뮤니티</a>
+          <a href="#market">국내주식</a>
+          <a href="#market">미국주식</a>
+          <a href="#memes">주식 웃짤</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn" id="searchToggle" aria-label="검색 열기">⌕</button>
+          <button class="login-btn" id="loginOpen">로그인</button>
+          <button class="write-btn" id="writeButton">글쓰기</button>
+        </div>
+      </div>
+      <div class="search-panel" id="searchPanel">
+        <div class="shell search-inner">
+          <input type="search" placeholder="종목명, 종목코드, 게시글을 검색하세요" aria-label="통합검색" />
+          <button id="searchClose">닫기</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell page-grid">
+      <section class="content-column">
+        <section class="market-strip" id="market" aria-label="주요 지수">
+          <div class="market-heading">
+            <span class="live-dot"></span>
+            <strong>오늘의 시장</strong>
+            <span class="market-time">장 마감 · 예시 데이터</span>
+          </div>
+          <div class="ticker-row">
+            <article class="ticker">
+              <span>KOSPI</span><strong>2,573.64</strong><em class="up">+0.68%</em>
+            </article>
+            <article class="ticker">
+              <span>KOSDAQ</span><strong>733.08</strong><em class="down">-0.12%</em>
+            </article>
+            <article class="ticker">
+              <span>NASDAQ</span><strong>17,181.14</strong><em class="up">+1.04%</em>
+            </article>
+            <article class="ticker">
+              <span>USD/KRW</span><strong>1,379.20</strong><em class="down">-0.21%</em>
+            </article>
+          </div>
+        </section>
+
+        <section class="hero-card">
+          <div>
+            <span class="eyebrow">오늘도 성투하세요</span>
+            <h1>투자 이야기가<br />가장 뜨거운 곳</h1>
+            <p>종목 분석부터 시장 소식, 웃픈 투자 밈까지.<br />개미들의 솔직한 이야기를 나눠보세요.</p>
+          </div>
+          <div class="hero-chart" aria-hidden="true">
+            <span class="candle c1"></span><span class="candle c2"></span><span class="candle c3"></span>
+            <span class="candle c4"></span><span class="candle c5"></span><span class="candle c6"></span>
+            <svg viewBox="0 0 260 100" role="img"><path d="M5 85 C40 78, 45 70, 70 73 S110 58, 125 62 S155 32, 175 42 S215 15, 255 8" /></svg>
+          </div>
+        </section>
+
+        <section class="board-card" id="board">
+          <div class="section-head">
+            <div>
+              <span class="section-kicker">COMMUNITY</span>
+              <h2>지금 뜨는 이야기</h2>
+            </div>
+            <div class="tabs" role="tablist">
+              <button class="tab active" data-filter="all">전체</button>
+              <button class="tab" data-filter="domestic">국내</button>
+              <button class="tab" data-filter="usa">미국</button>
+              <button class="tab" data-filter="free">자유</button>
+            </div>
+          </div>
+          <div class="post-list" id="postList">
+            <article class="post pinned" data-category="domestic">
+              <span class="badge hot">HOT</span>
+              <div class="post-main"><h3>오늘 반도체 수급 어떻게 보시나요?</h3><p>외인 매수세가 다시 들어오는데 이번 주 흐름이 궁금합니다.</p><div class="meta"><span>차트보는개미</span><span>12분 전</span><span>조회 1,248</span></div></div>
+              <div class="post-stats"><strong>38</strong><span>댓글</span></div>
+            </article>
+            <article class="post" data-category="usa">
+              <span class="badge usa">미국</span>
+              <div class="post-main"><h3>FOMC 이후 나스닥 대응 전략 공유</h3><p>단기 변동성은 커져도 장기 방향성은 유지될 것 같네요.</p><div class="meta"><span>월가산책</span><span>31분 전</span><span>조회 892</span></div></div>
+              <div class="post-stats"><strong>24</strong><span>댓글</span></div>
+            </article>
+            <article class="post" data-category="domestic">
+              <span class="badge domestic">국내</span>
+              <div class="post-main"><h3>실적 발표 앞둔 종목 체크리스트</h3><p>컨센서스보다 현금흐름과 재고부터 보고 있습니다.</p><div class="meta"><span>가치투자중</span><span>1시간 전</span><span>조회 631</span></div></div>
+              <div class="post-stats"><strong>17</strong><span>댓글</span></div>
+            </article>
+            <article class="post" data-category="free">
+              <span class="badge free">자유</span>
+              <div class="post-main"><h3>주식 시작하고 생긴 소소한 습관들</h3><p>아침에 눈 뜨자마자 환율부터 보는 사람이 됐습니다.</p><div class="meta"><span>배당은사랑</span><span>2시간 전</span><span>조회 504</span></div></div>
+              <div class="post-stats"><strong>29</strong><span>댓글</span></div>
+            </article>
+          </div>
+          <button class="more-btn">게시글 더 보기 <span>→</span></button>
+        </section>
+
+        <section class="meme-section" id="memes">
+          <div class="section-head compact">
+            <div><span class="section-kicker">STOCK MEMES</span><h2>오늘의 주식 웃짤</h2></div>
+            <a href="#">전체보기 →</a>
+          </div>
+          <div class="meme-grid">
+            <article class="meme-card"><div class="meme-art meme-red"><span>매수하자마자</span><strong>📉</strong><b>급락</b></div><h3>내가 사면 떨어지는 과학</h3><p>댓글 43 · 공감 128</p></article>
+            <article class="meme-card"><div class="meme-art meme-blue"><span>존버의 하루</span><strong>🧘</strong><b>평온</b></div><h3>차트를 안 보면 손실이 아니다</h3><p>댓글 26 · 공감 94</p></article>
+            <article class="meme-card"><div class="meme-art meme-yellow"><span>월급날 개미</span><strong>💸</strong><b>풀매수</b></div><h3>이번 달도 시장에 기부 완료</h3><p>댓글 51 · 공감 177</p></article>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-column">
+        <section class="side-card welcome-card">
+          <div class="mini-logo">B</div><h2>불장에 오신 걸<br />환영합니다!</h2>
+          <p>로그인하고 투자자들과<br />솔직한 이야기를 나눠보세요.</p>
+          <button class="primary-wide" id="sideLogin">간편하게 시작하기</button>
+          <div class="quick-links"><a href="#">아이디 찾기</a><i></i><a href="#">비밀번호 찾기</a></div>
+        </section>
+        <section class="side-card rank-card">
+          <div class="side-title"><h2>실시간 인기 종목</h2><span>15:30 기준</span></div>
+          <ol class="ranking">
+            <li><b>1</b><div><strong>삼성전자</strong><span>005930</span></div><em class="up">+1.24%</em></li>
+            <li><b>2</b><div><strong>SK하이닉스</strong><span>000660</span></div><em class="up">+2.81%</em></li>
+            <li><b>3</b><div><strong>테슬라</strong><span>TSLA</span></div><em class="down">-0.46%</em></li>
+            <li><b>4</b><div><strong>엔비디아</strong><span>NVDA</span></div><em class="up">+3.12%</em></li>
+            <li><b>5</b><div><strong>현대차</strong><span>005380</span></div><em class="down">-0.18%</em></li>
+          </ol>
+        </section>
+        <section class="notice">
+          <strong>📢 커뮤니티 이용 안내</strong>
+          <p>서로의 투자 관점을 존중해주세요. 투자 판단과 책임은 본인에게 있습니다.</p>
+        </section>
+      </aside>
+    </main>
+
+    <footer><div class="shell"><div class="footer-brand"><span class="brand-mark">B</span><strong>불장</strong></div><p>건강한 투자 문화를 만드는 주식 커뮤니티</p><div><a href="#">이용약관</a><a href="#">개인정보처리방침</a><a href="#">운영정책</a></div><small>© 2026 BULJANG. All rights reserved.</small></div></footer>
+
+    <div class="modal-backdrop" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <section class="login-modal">
+        <button class="modal-close" id="loginClose" aria-label="닫기">×</button>
+        <div class="modal-brand"><span class="brand-mark">B</span><strong>불장</strong></div>
+        <h2 id="loginTitle">투자 이야기에 참여해보세요</h2><p>가입하면 관심 종목과 활동 내역을 한곳에서 볼 수 있어요.</p>
+        <button class="social kakao">💬 카카오로 계속하기</button>
+        <button class="social google"><span>G</span> Google로 계속하기</button>
+        <div class="or"><span>또는</span></div>
+        <button class="social email">이메일로 계속하기</button>
+        <small>계속 진행하면 이용약관 및 개인정보처리방침에 동의하게 됩니다.</small>
+      </section>
+    </div>
+    <div class="toast" id="toast">로그인 후 글을 작성할 수 있어요.</div>
+    <script src="app.js"></script>
+  </body>
+</html>
