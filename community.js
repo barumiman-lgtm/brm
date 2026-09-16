@@ -128,7 +128,7 @@
     $('#postList').innerHTML = filtered.length ? filtered.map((post) => `<article class="post is-live" data-category="${post.category}"><span class="badge ${categoryClass[post.category] || 'free'}">${categoryLabel[post.category] || '자유'}</span><div class="post-main"><h3>${escapeHtml(post.title)}</h3><p>${escapeHtml(post.content)}</p><div class="meta"><span>${escapeHtml(post.nickname)}</span><span>${ago(post.created_at)}</span><span>조회 ${formatNumber(post.views)}</span></div></div><div class="post-stats"><strong>0</strong><span>댓글</span></div></article>`).join('') : '<div class="empty-posts">첫 글을 작성해보세요.</div>';
   };
   const loadPosts = async () => {
-    const { data, error } = await client.from('posts').select('*').order('created_at', { ascending: false }).limit(30);
+    const { data, error } = await client.from('posts').select('*').order('created_at', { ascending: false }).limit(3);
     if (!error) { posts = data; renderPosts(); }
   };
   await loadPosts();
