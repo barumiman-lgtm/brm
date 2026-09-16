@@ -31,3 +31,16 @@ document.querySelector('#writeButton').addEventListener('click', () => {
   toast.classList.add('show');
   window.setTimeout(() => toast.classList.remove('show'), 2200);
 });
+
+document.querySelector('#chatForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const input = document.querySelector('#chatInput');
+  if (!input.value.trim()) return;
+  toast.textContent = '실시간 채팅은 로그인 연결 후 사용할 수 있어요.';
+  toast.classList.add('show');
+  window.setTimeout(() => {
+    toast.classList.remove('show');
+    toast.textContent = '로그인 후 글을 작성할 수 있어요.';
+  }, 2200);
+  input.value = '';
+});

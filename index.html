@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="chat.css" />
   </head>
   <body>
     <header class="topbar">
@@ -141,6 +142,23 @@
             <li><b>4</b><div><strong>엔비디아</strong><span>NVDA</span></div><em class="up">+3.12%</em></li>
             <li><b>5</b><div><strong>현대차</strong><span>005380</span></div><em class="down">-0.18%</em></li>
           </ol>
+        </section>
+        <section class="side-card chat-card" aria-labelledby="chatTitle">
+          <div class="side-title chat-title">
+            <h2 id="chatTitle"><span class="chat-live"></span> 실시간 채팅</h2>
+            <span><b id="onlineCount">128</b>명 접속</span>
+          </div>
+          <div class="chat-messages" id="chatMessages" aria-live="polite">
+            <div class="chat-message"><span class="avatar avatar-red">불</span><p><b>장전매수</b> 반도체 오늘 힘 좋네요</p><time>15:21</time></div>
+            <div class="chat-message"><span class="avatar avatar-blue">미</span><p><b>미장러</b> 엔비디아 또 가나요 ㅋㅋ</p><time>15:22</time></div>
+            <div class="chat-message"><span class="avatar avatar-green">배</span><p><b>배당개미</b> 저는 오늘도 적립식!</p><time>15:23</time></div>
+            <div class="chat-message"><span class="avatar avatar-yellow">존</span><p><b>존버왕</b> 다들 성투하세요 🔥</p><time>15:24</time></div>
+          </div>
+          <form class="chat-form" id="chatForm">
+            <input id="chatInput" type="text" maxlength="80" placeholder="메시지를 입력하세요" aria-label="채팅 메시지" />
+            <button type="submit" aria-label="메시지 보내기">↑</button>
+          </form>
+          <p class="chat-note">로그인 후 채팅에 참여할 수 있어요.</p>
         </section>
         <section class="notice">
           <strong>📢 커뮤니티 이용 안내</strong>
